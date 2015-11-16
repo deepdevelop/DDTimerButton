@@ -62,19 +62,6 @@ static NSString *const  progressTitleFormat = @"%d 秒";
     return self;
 }
 
-
-+ (instancetype)sharedButton {
-    static DDTimerButton *sharedButton;
-    
-    dispatch_once_t onece;
-    dispatch_once(&onece, ^{
-        sharedButton = [[DDTimerButton alloc] init];
-    });
-    
-    return sharedButton;
-}
-
-
 - (void)startCounting {
     if ([self hasRegisterIdentifier:_buttonIdentifier]) {
         self.expiredTime = [self expiredTimeWithRegisterIdentifier:_buttonIdentifier];
